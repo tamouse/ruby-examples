@@ -5,7 +5,7 @@ class Dataanalysis
 
   def initialize(filename)
     @filename = filename
-    @content = File.readlines(@filename)
+    @content = File.readlines(@filename).map(&:chomp)
     @lines = @content.size
     @emptylines = @content.grep(/^\s*$/).size
   end
