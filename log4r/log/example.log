@@ -1,0 +1,16 @@
+DEBUG  2013-11-01 07:00:51 example ./example.rb (no trace) debugging
+INFO   2013-11-01 07:00:51 example ./example.rb (no trace) a piece of info
+WARN   2013-11-01 07:00:51 example ./example.rb (no trace) Danger, Will Robinson, danger!
+ERROR  2013-11-01 07:00:51 example ./example.rb (no trace) I dropped my Wookie! :(
+FATAL  2013-11-01 07:00:51 example ./example.rb (no trace) kaboom!
+WARN   2013-11-01 07:00:51 example ./example.rb (no trace) Danger, Will Robinson, danger!
+ERROR  2013-11-01 07:00:51 example ./example.rb (no trace) I dropped my Wookie! :(
+FATAL  2013-11-01 07:00:51 example ./example.rb (no trace) kaboom!
+DEBUG  2013-11-01 07:01:34 example ./example.rb (no trace) debugging
+INFO   2013-11-01 07:01:34 example ./example.rb (no trace) a piece of info
+WARN   2013-11-01 07:01:34 example ./example.rb (no trace) Danger, Will Robinson, danger!
+ERROR  2013-11-01 07:01:34 example ./example.rb (no trace) I dropped my Wookie! :(
+FATAL  2013-11-01 07:01:34 example ./example.rb (no trace) kaboom!
+WARN   2013-11-01 07:01:34 example ./example.rb (no trace) Danger, Will Robinson, danger!
+ERROR  2013-11-01 07:01:34 example ./example.rb (no trace) I dropped my Wookie! :(
+FATAL  2013-11-01 07:01:34 example ./example.rb (no trace) kaboom!
