@@ -1,14 +1,14 @@
-check_options_parameters/
-animated_moons/
 fuzzy-string-match/
 msnbc-scraper/
 ruby.v.python/
 rubycas-server-memory/
 sort_exercise/
-cardgame/
 codebreaker/
 kaprekar/
 rss_play/
 sort_exercise/
 test_expand_path/
 testdependencies/
+ClassVarTest/
+TestShellBins/
+extractimagesfromnatgeopage/

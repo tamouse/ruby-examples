@@ -1,24 +1,28 @@
+#!/usr/bin/env ruby
+#
 # EXTRACTURLS.RB
 #
-# *Author*::      Tamara Temple <tamara@tamaratemple.com>
-# *Since*::       2012-12-17
-# *Version*::     0.0.1
-# *Copyright*::   (c) 2012 Tamara Temple Web Development
-# *License*::     MIT
+# Time-stamp: <2015-03-03 08:48:44 tamara>
+# Copyright (C) 2015 by Tamara Temple Web Development
+# License: MIT
+# Author: Tamara Temple <tamouse@gmail.com>
 #
 #--
 
 require 'nokogiri'
+require 'open-uri'
  
 def extract (doc)
-	doc.search("a.thumb").each do |a|
-		puts a.attribute('href')
-	end
+  doc.search("a").map do |a|
+    a.attribute('href')
+  end
 end
 
-while ARGV do |file|
+ARGV.each do |file|
   puts "scanning #{file}"
-  File.open(file) do |f|
-    extract(f.read)
+  urls = open(file) do |f|
+    extract(Nokogiri::HTML(f.read))
   end
+  puts "URLs found:"
+  puts urls.join("\n")
 end
