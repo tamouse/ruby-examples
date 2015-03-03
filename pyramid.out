@@ -1,0 +1,14 @@
+[6] pry(main)> load 'pyramid.rb'
+=> true
+[7] pry(main)> pyr1 = Pyramid.new(5)
+=> #<Pyramid:0x007fb08e74a9a0
+ @pyramid=[[1], [2, 1], [3, 2, 1], [4, 3, 2, 1], [5, 4, 3, 2, 1]],
+ @size=5>
+[8] pry(main)> print pyr1
+     1      
+    2 1     
+   3 2 1    
+  4 3 2 1   
+ 5 4 3 2 1  
+=> nil
+[9] pry(main)> 

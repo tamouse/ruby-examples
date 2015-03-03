@@ -1,0 +1,37 @@
+Script started on Wed Dec 31 03:50:35 2014
+[?1034h]0;tamara@pontiki: ~/Projects/rubystuff/examples
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples[00m:[01;33m2014-12-31@03:50:35[00m
+$ cat example-pry-gets.rb 
+print "type something: "
+something = gets
+puts something
+]0;tamara@pontiki: ~/Projects/rubystuff/examples
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples[00m:[01;33m2014-12-31@03:50:41[00m
+$ pry example-pry-gets.rb 
+type something: print "type something: "
+]0;tamara@pontiki: ~/Projects/rubystuff/examples
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples[00m:[01;33m2014-12-31@03:50:48[00m
+$ irb example-pry-gets.rb 
+example-pry-gets.rb(main):001:0> print "type something: "
+type something: => nil
+example-pry-gets.rb(main):002:0> something = gets
+hello
+=> "hello\n"
+example-pry-gets.rb(main):003:0> puts something
+hello
+=> nil
+example-pry-gets.rb(main):004:0> 
+]0;tamara@pontiki: ~/Projects/rubystuff/examples
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples[00m:[01;33m2014-12-31@03:50:58[00m
+$ pry
+[0G[1] pry(main)> load "example-pry-gets.rb"
+[1A[0G[1] pry(main)> load [31m[1;31m"[0m[31mexample-pry-gets.rb[1;31m"[0m[31m[0m[1B[0Gtype something: hi there
+hi there
+=> [1;36mtrue[0m
+[2] pry(main)> quit
+[1A[0G[2] pry(main)> quit[1B[0G]0;tamara@pontiki: ~/Projects/rubystuff/examples
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples[00m:[01;33m2014-12-31@03:51:23[00m
+$ exit
+exit
+
+Script done on Wed Dec 31 03:51:29 2014

@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+class TwoOrThree
+
+  attr_accessor :value
+
+  def initialize(value)
+    self.value = value
+  end
+
+  def each
+    return enum_for(:each) unless block_given?
+
+    loop do
+      yield self.value
+
+      if self.value.odd?
+        self.value = self.value * 3
+      else
+        self.value = self.value / 2
+      end
+
+    end
+      
+  end
+
+end
+
+if ARGV.count < 2
+  puts "Usage: #{$0} START COUNT"
+  exit(-1)
+end
+
+start_value = Integer(ARGV.shift)
+take_value = Integer(ARGV.shift)
+
+e = TwoOrThree.new(start_value).each
+
+p e.take(take_value)
+  

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+RXFILE = "/sys/class/net/%{interface}/statistics/rx_bytes"
+TXFILE = "/sys/class/net/%{interface}/statistics/tx_bytes"
+
+interface = ARGV.shift
+
+r1 = Integer(File.read((RXFILE % {interface: interface})))
+t1 = Integer(File.read((TXFILE % {interface: interface})))
+
+sleep 1
+
+r2 = Integer(File.read((RXFILE % {interface: interface})))
+t2 = Integer(File.read((TXFILE % {interface: interface})))
+
+tkbps = (t2 - t1) / 1024
+rkbps = (r2 - r1) / 1024
+
+puts "Transmitted: #{tkbps} kbps"
+puts "Recieved: #{rkpbs} kbps"

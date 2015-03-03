@@ -1,0 +1,47 @@
+Script started on Wed Oct 15 09:26:21 2014
+[?1034h]0;tamara@pontiki: ~/Projects/rubystuff/examples/no-open-uri
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples/no-open-uri[00m:[01;33m2014-10-15@09:26:21[00m
+$ cat with-open-uri.rb 
+require 'open-uri'
+require 'nokogiri'
+
+test_site = "http://www.xxxx.albea.com/xx"
+doc = Nokogiri::HTML(open(test_site))
+]0;tamara@pontiki: ~/Projects/rubystuff/examples/no-open-uri
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples/no-open-uri[00m:[01;33m2014-10-15@09:26:26[00m
+$ ruby with-open-uri.rb 
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `initialize': getaddrinfo: nodename nor servname provided, or not known (SocketError)
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `open'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:878:in `block in connect'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:877:in `connect'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/net/http.rb:851:in `start'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:313:in `open_http'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:709:in `buffer_open'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:210:in `block in open_loop'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:208:in `catch'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:208:in `open_loop'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:149:in `open_uri'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:689:in `open'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/open-uri.rb:34:in `open'
+	from with-open-uri.rb:5:in `<main>'
+]0;tamara@pontiki: ~/Projects/rubystuff/examples/no-open-uri
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples/no-open-uri[00m:[01;33m2014-10-15@09:26:31[00m
+$ cat without-open-uri.rb 
+# require 'open-uri'
+require 'nokogiri'
+
+test_site = "http://www.xxxx.albea.com/xx"
+doc = Nokogiri::HTML(open(test_site))
+]0;tamara@pontiki: ~/Projects/rubystuff/examples/no-open-uri
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples/no-open-uri[00m:[01;33m2014-10-15@09:26:35[00m
+$ ruby without-open-uri.rb 
+without-open-uri.rb:5:in `initialize': No such file or directory - http://www.xxxx.albea.com/xx (Errno::ENOENT)
+	from without-open-uri.rb:5:in `open'
+	from without-open-uri.rb:5:in `<main>'
+]0;tamara@pontiki: ~/Projects/rubystuff/examples/no-open-uri
+[01;32mtamara@pontiki[00m:[01;34m~/Projects/rubystuff/examples/no-open-uri[00m:[01;33m2014-10-15@09:26:39[00m
+$ exit
+
+Script done on Wed Oct 15 09:26:41 2014

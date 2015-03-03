@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+OUTPUT_FORMAT = "%s in decimal is %d"
+ERROR_FORMAT  = "Argument %s must be a binary string (0 and 1 only)."
+
+
+
+def convert(binary_string="")
+  binary_string = binary_string.to_s
+  unless binary_string[/\A[01]+\z/]
+    raise ArgumentError.new ERROR_FORMAT % binary_string.inspect
+  end
+  number = 0
+  binary_string.split('').reverse.each_with_index do |c, i|
+    number += c.to_i * (2 ** i)
+  end
+  number
+end
+
+def idiomatic_convert(binary_string="")
+  Integer("0b#{binary_string.to_s}")
+end
+
+def repl
+  loop do
+    print "\nEnter a binary string: (just press return to quit) "
+    response = gets.chomp
+    break if response.empty?
+
+    print "Manual conversion:    "
+    begin
+      puts OUTPUT_FORMAT % [response, convert(response)]
+    rescue ArgumentError => e
+      puts "ERROR: #{e} (#{e.class})"
+    end
+
+    print "Idiomatic conversion: "
+    begin
+      puts OUTPUT_FORMAT % [response, idiomatic_convert(response)]
+    rescue ArgumentError => e
+      puts "ERROR: " + (ERROR_FORMAT % response.inspect)
+      puts "  - Exception raised: #{e} (#{e.class}) from #{e.backtrace.first}"
+    end
+  end
+end
+
+puts "Welcome to the Famouse Binary to Decimal Converter!\n"
+repl
+puts "\nThanks for playing!"

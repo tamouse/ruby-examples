@@ -1,6 +1,6 @@
 
 def wrap(s, tag, attr={}, &b)
-  s = [s] unless s.is_a? Array
+  s = Array.new(s)                               # thanks avdi
   attr = attr.empty? ? '' : " #{attr.map{|k,v| "#{k}='#{v}'"}.join(" ")}"
   out = "<#{tag}#{attr}>"
   out += s.inject("") {|m,o| m+="#{block_given? ? (yield o) : o}"}

@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+IO.popen('csh -ic "source setup_env.csh && setenv"') do |io|
+  io.each_line do |line|
+    if %r{^([[:alnum:]_]+)\s*=\s*(.*)}m =~ line
+      k = $1
+      v = $2
+      ENV[k] ||= v
+    else
+      STDERR.puts "Did not parse line #{line}"
+    end
+  end
+end
+
+puts "ENV_VAR_A: #{ENV["ENV_VAR_A"]}"
+puts "ENV_VAR_B: #{ENV["ENV_VAR_B"]}"
